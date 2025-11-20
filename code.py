@@ -32,17 +32,14 @@ def getDelay():
     global delayGotten, cur
     while True:
         pixels.fill((0, 0, 0, 0))
-        pixels[cur] = (0, 0, 255, 0) #BRIAN: This was your bug((0, 0, 255, 0))
-        #for i in range(cur): # BRIAN: Your bug was you were trying to loop through pixels, not a range:
-        #    pixels[i] = (0, 0, 0, 0)#BRIAN: this was your bug((0, 0, 0, 0))
+        pixels[cur] = (0, 0, 255, 0)
         if (not button2.value):
             cur = cur + 1
             if cur > 15:
                 cur = 1
             time.sleep(.3)
-            #BRIAN:  add a debounce!
         if (not button.value):
-            if cur == 0: #BRIAN: don't return an int. Return a delay based on the int (or handle it somewhere) - or call it level
+            if cur == 0:
                 return 0.08
             elif cur == 1:
                 return 0.075
